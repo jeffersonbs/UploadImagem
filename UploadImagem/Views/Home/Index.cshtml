@@ -1,0 +1,16 @@
+﻿@model UploadImagem.ViewModels.LojasViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach(var loja in Model.Lojas)
+{
+    <div>
+        @if (loja.ArquivoDigitalizacao != null && loja.ArquivoDigitalizacao.Arquivo != null && loja.ArquivoDigitalizacao.Arquivo.Length > 0)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(loja.ArquivoDigitalizacao.Arquivo)" alt="Imagem da Loja" width="100" height="100" />
+        }
+        <span>@loja.Nome</span>
+    </div>
+}
