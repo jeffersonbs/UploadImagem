@@ -32,15 +32,6 @@ namespace UploadImagem.Controllers
             return View(viewmodel);
         }
 
-        public void Deletar()
-        {
-            var loja3 = _context.Lojas.Where(x => x.Id == 3 || x.Id == 4).ToList();
-
-            _context.Remove(loja3.Where(x => x.Id == 3).FirstOrDefault());
-            _context.Remove(loja3.Where(x => x.Id == 4).FirstOrDefault());
-            _context.SaveChanges();
-        }
-
         public IActionResult CadastrarLoja()
         {
             return View();
